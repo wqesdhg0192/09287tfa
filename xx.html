@@ -3,169 +3,395 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - Subbdtoken.com</title>
+    <title>SUBBD - Legal Documents</title>
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #0F0F0F;
-            color: #989898;
+        /* Global Styles */
+        :root {
+            --background: #0F0F0F;
+            --text-primary: #FFFFFF;
+            --text-secondary: #989898;
+            --accent: #FA343F;
+            --border: #222222;
+            --card-bg: #161616;
+        }
+        
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+        }
+        
+        body {
+            background-color: var(--background);
+            color: var(--text-secondary);
             line-height: 1.6;
         }
-        .container {
+        
+        /* Grid Layout */
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr;
             max-width: 1440px;
             margin: 0 auto;
-            padding: 40px 60px;
+            padding: 0 20px;
         }
-        h1, h2, h3 {
-            color: #FA343F;
-            margin-top: 30px;
-            margin-bottom: 20px;
+        
+        @media (min-width: 768px) {
+            .grid-container {
+                grid-template-columns: repeat(12, 1fr);
+                gap: 30px;
+                padding: 0 40px;
+            }
         }
+        
+        /* Header */
+        header {
+            grid-column: 1 / -1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 0;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 40px;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        
+        .logo span {
+            color: var(--accent);
+        }
+        
+        /* Navigation */
+        nav {
+            grid-column: 1 / -1;
+            margin-bottom: 40px;
+        }
+        
+        .nav-tabs {
+            display: flex;
+            list-style: none;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .nav-tabs li {
+            margin-right: 30px;
+        }
+        
+        .nav-tabs a {
+            display: block;
+            padding: 15px 0;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+        }
+        
+        .nav-tabs a.active {
+            color: var(--text-primary);
+        }
+        
+        .nav-tabs a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--accent);
+        }
+        
+        /* Content */
+        .content {
+            grid-column: 1 / -1;
+        }
+        
+        @media (min-width: 768px) {
+            .content {
+                grid-column: 2 / 12;
+            }
+        }
+        
         h1 {
             font-size: 36px;
-            border-bottom: 1px solid #333;
-            padding-bottom: 15px;
+            color: var(--text-primary);
+            margin-bottom: 30px;
+            font-weight: 700;
         }
+        
         h2 {
-            font-size: 28px;
-        }
-        h3 {
             font-size: 24px;
+            color: var(--accent);
+            margin: 40px 0 20px;
+            font-weight: 600;
         }
+        
+        h3 {
+            font-size: 20px;
+            color: var(--text-primary);
+            margin: 30px 0 15px;
+            font-weight: 600;
+        }
+        
         p {
             margin-bottom: 20px;
+            font-size: 16px;
         }
+        
+        ul {
+            margin: 0 0 25px 20px;
+        }
+        
+        li {
+            margin-bottom: 12px;
+        }
+        
         .highlight {
-            color: #FFFFFF;
+            color: var(--text-primary);
             font-weight: 500;
         }
-        ul {
-            padding-left: 20px;
-        }
-        li {
-            margin-bottom: 15px;
-        }
+        
         .section {
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #222;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid var(--border);
         }
-        .section-title {
-            color: #FFFFFF;
-            font-weight: bold;
-            margin-bottom: 10px;
+        
+        .section:last-child {
+            border-bottom: none;
         }
-        .contact {
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid #333;
-        }
-        .email {
-            color: #FFFFFF;
-            text-decoration: none;
-        }
-        .email:hover {
-            text-decoration: underline;
-        }
-        a {
-            color: #FA343F;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
+        
         .info-category {
-            color: #FFFFFF;
-            font-weight: bold;
+            color: var(--accent);
+            font-weight: 600;
+            display: inline-block;
             margin-bottom: 5px;
+        }
+        
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        
+        a:hover {
+            opacity: 0.8;
+        }
+        
+        /* Footer */
+        footer {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 60px;
+            border-top: 1px solid var(--border);
+            font-size: 14px;
+        }
+        
+        /* Tab Content */
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        /* Cards */
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+        
+        .card-title {
+            color: var(--text-primary);
+            font-size: 18px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: var(--text-primary);
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        
+        .btn:hover {
+            opacity: 0.9;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>PRIVACY POLICY FOR Subbdtoken.com</h1>
+    <div class="grid-container">
+        <header>
+            <div class="logo">SUBB<span>D</span></div>
+        </header>
         
-        <div class="section">
-            <h2>Introduction</h2>
-            <p>Welcome to Subbdtoken.com ("we", "our", "us"). We are committed to respecting and protecting your privacy. This Privacy Policy outlines how we collect, use, and share your personal information when you visit our website <a href="http://www.Subbdtoken.com">www.Subbdtoken.com</a> (the "Website").</p>
-        </div>
+        <nav>
+            <ul class="nav-tabs">
+                <li><a href="#" class="active" data-tab="terms">Terms & Conditions</a></li>
+                <li><a href="#" data-tab="privacy">Privacy Policy</a></li>
+                <li><a href="#" data-tab="cookies">Cookie Policy</a></li>
+            </ul>
+        </nav>
         
-        <div class="section">
-            <h2>1. Information We Collect</h2>
+        <div class="content">
+            <!-- Terms and Conditions -->
+            <div id="terms" class="tab-content active">
+                <h1>Terms and Conditions</h1>
+                
+                <div class="section">
+                    <h2>INTRODUCTION</h2>
+                    <p>Welcome to Subbdtoken.com ("we", "our", "us"). These terms and conditions ("Terms") govern your use of our website located at <a href="http://www.Subbdtoken.com">www.Subbdtoken.com</a> (the "Website") and any related services provided by us (collectively, the "Services"). By accessing or using the Services, you agree to be bound by these Terms. If you do not agree with any part of these Terms, you must not use our Services.</p>
+                </div>
+                
+                <div class="section">
+                    <h2>1. ELIGIBILITY</h2>
+                    <p>You must be at least <span class="highlight">18 years old</span> to use our Services. By using our Services, you represent and warrant that you are at least 18 years old and have the legal capacity to enter into these Terms. Additionally, you must not access or use the Website if the promotion or use of cryptocurrencies is restricted or prohibited in your jurisdiction.</p>
+                </div>
+                
+                <div class="section">
+                    <h2>2. REGISTRATION AND ACCOUNT</h2>
+                    <p>To participate in the SUBBD token activities, you may need to create an account on our Website. You agree to:</p>
+                    <ul>
+                        <li>Provide accurate, current, and complete information during the registration process.</li>
+                        <li>Maintain and promptly update your account information.</li>
+                        <li>Keep your password secure and confidential.</li>
+                        <li>Notify us immediately of any unauthorized use of your account or any other security breach.</li>
+                    </ul>
+                    <p>You are responsible for all activities that occur under your account.</p>
+                </div>
+                
+                <div class="section">
+                    <h2>3. USE OF THE SERVICES</h2>
+                    <p>You agree to use our Services only for lawful purposes and in accordance with these Terms. You agree not to:</p>
+                    <ul>
+                        <li>Use the Services in any way that violates any applicable federal, state, local, or international law or regulation.</li>
+                        <li>Engage in any conduct that restricts or inhibits anyone's use or enjoyment of the Services.</li>
+                        <li>Use the Services in any manner that could disable, overburden, damage, or impair the Services or interfere with any other party's use of the Services.</li>
+                    </ul>
+                </div>
+                
+                <div class="section">
+                    <h2>4. TOKEN PRESALE</h2>
+                    <div class="card">
+                        <div class="card-title">Important Notice</div>
+                        <p>The purchase of SUBBD tokens involves a <span class="highlight">high degree of risk</span>, and the value of tokens can fluctuate significantly. You should conduct your own research before making any purchase.</p>
+                    </div>
+                    <p>By participating in the SUBBD token presale, you acknowledge and agree that:</p>
+                    <ul>
+                        <li>We do not provide investment advice, and nothing on our Website constitutes investment or financial advice.</li>
+                        <li>The purchase of SUBBD tokens does not entitle you to any ownership or other interest in any company or entity.</li>
+                        <li>Tokens will not be available immediately upon purchase; by purchasing SUBBD tokens, you accept that you will have to wait until the presale concludes to receive the purchased assets.</li>
+                    </ul>
+                </div>
+                
+                <!-- More sections would continue here -->
+            </div>
             
-            <h3>Information You Provide to Us:</h3>
-            <ul>
-                <li><span class="info-category">Customer Support Information:</span> When you contact us for assistance, we may collect details such as your full name, email address, and any information you provide to help us resolve your inquiry. This information is used solely for customer support purposes.</li>
-                <li><span class="info-category">Opt-In Communications:</span> If you sign up for updates, newsletters, or other communications, we will collect the necessary contact details, including your name and email, for marketing and updates.</li>
-                <li><span class="info-category">Accuracy of Information:</span> You are responsible for ensuring that the personal information you provide to us is accurate and up to date.</li>
-            </ul>
+            <!-- Privacy Policy -->
+            <div id="privacy" class="tab-content">
+                <h1>Privacy Policy</h1>
+                
+                <div class="section">
+                    <h2>Introduction</h2>
+                    <p>Welcome to Subbdtoken.com ("we", "our", "us"). We are committed to respecting and protecting your privacy. This Privacy Policy outlines how we collect, use, and share your personal information when you visit our website <a href="http://www.Subbdtoken.com">www.Subbdtoken.com</a> (the "Website").</p>
+                </div>
+                
+                <div class="section">
+                    <h2>1. Information We Collect</h2>
+                    
+                    <h3>Information You Provide to Us:</h3>
+                    <div class="card">
+                        <div class="card-title">Your Data Matters</div>
+                        <p>We only collect information that's necessary to provide our services and improve your experience.</p>
+                    </div>
+                    <ul>
+                        <li><span class="info-category">Customer Support Information:</span> When you contact us for assistance, we may collect details such as your full name, email address, and any information you provide to help us resolve your inquiry.</li>
+                        <li><span class="info-category">Opt-In Communications:</span> If you sign up for updates, newsletters, or other communications, we will collect the necessary contact details, including your name and email, for marketing and updates.</li>
+                        <li><span class="info-category">Accuracy of Information:</span> You are responsible for ensuring that the personal information you provide to us is accurate and up to date.</li>
+                    </ul>
+                    
+                    <h3>Information We Automatically Collect:</h3>
+                    <ul>
+                        <li><span class="info-category">Identifiers:</span> We may collect your IP address, device information, browser type, operating system, and other data about how you interact with our website.</li>
+                        <li><span class="info-category">Cookies:</span> Our website uses cookies and other tracking technologies to enhance your experience and functionality. You can manage your cookie preferences via your browser settings.</li>
+                        <li><span class="info-category">Usage Data:</span> We collect information about how you interact with the website, including your browsing activity, session durations, and engagement with various features.</li>
+                    </ul>
+                </div>
+                
+                <!-- More sections would continue here -->
+            </div>
             
-            <h3>Information We Automatically Collect:</h3>
-            <ul>
-                <li><span class="info-category">Identifiers:</span> We may collect your IP address, device information, browser type, operating system, and other data about how you interact with our website.</li>
-                <li><span class="info-category">Cookies:</span> Our website uses cookies and other tracking technologies (e.g. pixel tags, web beacons) to enhance your experience and functionality. Cookies are small data files stored on your device that help us recognize your browser or device and improve user experience. You can manage your cookie preferences via your browser settings. Please note that disabling cookies may affect certain functionalities. See our Cookie Policy for more details.</li>
-                <li><span class="info-category">Usage Data:</span> We collect information about how you interact with the website, including your browsing activity, session durations, and engagement with various features.</li>
-            </ul>
-            
-            <h3>Information from Third Parties:</h3>
-            <ul>
-                <li><span class="info-category">Third-Party Platforms:</span> If you sign in or interact with our website through a third-party service (e.g., Best Wallet, MetaMask, Google), we may receive information from those platforms, such as user IDs or token balances.</li>
-                <li><span class="info-category">Blockchain Transactions:</span> Any blockchain transactions, including token purchases and transfers, are recorded on public ledgers. We do not collect private wallet information but may monitor transaction data through blockchain explorers.</li>
-                <li><span class="info-category">Analytics Services:</span> We utilize third-party analytics providers, such as Google Analytics, to help us understand usage patterns and optimize our website. This data includes non-personally identifiable information related to user activity.</li>
-            </ul>
+            <!-- Cookie Policy -->
+            <div id="cookies" class="tab-content">
+                <h1>Cookie Policy</h1>
+                
+                <div class="section">
+                    <h2>WHAT ARE COOKIES</h2>
+                    <p>This cookie policy explains what information is collected through cookies, how we use it, and how you can manage cookie preferences. Please note that disabling cookies may affect the functionality of certain features on our site.</p>
+                </div>
+                
+                <div class="section">
+                    <h2>HOW WE USE COOKIES</h2>
+                    <div class="card">
+                        <div class="card-title">Cookie Management</div>
+                        <p>You can disable cookies by adjusting your browser settings, but this may affect the functionality of our website.</p>
+                    </div>
+                    <p>We use cookies for several purposes, outlined below. Unfortunately, in most cases, disabling cookies could limit the functionality of the website and impact your user experience. We recommend keeping cookies enabled unless you are sure that you do not need them for any services on our website.</p>
+                </div>
+                
+                <div class="section">
+                    <h2>THE COOKIES WE SET</h2>
+                    <ul>
+                        <li><span class="info-category">Form submission cookies:</span> Cookies may be set when you submit data through forms such as contact or registration forms. These cookies are used to remember your details for future interactions.</li>
+                        <li><span class="info-category">Site preferences cookies:</span> To ensure a seamless user experience, we use cookies to remember your preferences, such as language or layout settings, which improves your experience during future visits to the website.</li>
+                    </ul>
+                </div>
+                
+                <!-- More sections would continue here -->
+            </div>
         </div>
         
-        <div class="section">
-            <h2>2. How We Use Your Information</h2>
-            <p>We use the personal information collected for the following purposes:</p>
-            <ul>
-                <li><span class="highlight">To Provide Services:</span> To facilitate and deliver the services you request, including processing transactions and managing customer inquiries.</li>
-                <li><span class="highlight">To Improve Our Website:</span> Understanding how users interact with our website helps us improve functionality, user experience, and content.</li>
-                <li><span class="highlight">To Communicate with You:</span> We may send you updates, newsletters, or other information related to SUBBD, based on your subscription preferences.</li>
-                <li><span class="highlight">For Legal and Compliance:</span> To comply with applicable legal, regulatory, and security obligations.</li>
-            </ul>
-        </div>
-        
-        <div class="section">
-            <h2>3. Sharing of Your Information</h2>
-            <p>We may share your personal information under these circumstances:</p>
-            <ul>
-                <li><span class="highlight">Service Providers:</span> We may share information with third-party service providers who assist with our operations, such as data analysis, email distribution, and customer support.</li>
-                <li><span class="highlight">Legal Obligations:</span> We may disclose personal information if required by law or to comply with valid legal requests from authorities.</li>
-            </ul>
-        </div>
-        
-        <div class="section">
-            <h2>4. Security of Your Information</h2>
-            <p>We employ various security measures, including encryption, to protect your personal information. However, no security system is entirely foolproof. We strive to protect your data, but we cannot guarantee its absolute security.</p>
-        </div>
-        
-        <div class="section">
-            <h2>5. Your Data Rights</h2>
-            <p>Depending on your jurisdiction, you may have rights in relation to your personal information. These include:</p>
-            <ul>
-                <li><span class="info-category">Right to Access:</span> You may request access to the personal information we hold about you.</li>
-                <li><span class="info-category">Right to Correction:</span> You may request corrections to any inaccurate or incomplete information.</li>
-                <li><span class="info-category">Right to Deletion:</span> You may request the deletion of your personal information, subject to certain legal obligations.</li>
-                <li><span class="info-category">Right to Restrict Processing:</span> You can request that we limit the processing of your data.</li>
-                <li><span class="info-category">Right to Data Portability:</span> You may request to receive a copy of your data in a machine-readable format.</li>
-                <li><span class="info-category">Right to Withdraw Consent:</span> If you have provided consent for specific processing, you can withdraw it at any time.</li>
-            </ul>
-            <p>We may request additional information to verify your identity before fulfilling any of these requests. We aim to respond to all legitimate requests within <span class="highlight">one month</span>, but this may vary based on the complexity of your request.</p>
-        </div>
-        
-        <div class="section">
-            <h2>6. Contact &amp; Complaints</h2>
-            <p>If you have any questions, concerns, or complaints regarding this privacy policy, please contact us at <a href="mailto:support@SUBBD.com" class="email">support@SUBBD.com</a>. If you feel that your complaint has not been adequately addressed, you may have the right to file a complaint with a regulatory authority.</p>
-        </div>
-        
-        <div class="section">
-            <h2>7. Updates to This Policy</h2>
-            <p>We may update this Privacy Policy from time to time. Any changes will be posted on this page, and, where appropriate, we will notify you by email or other communication methods. Please check this page regularly for updates.</p>
-            <p>By continuing to use Subbdtoken.com, you agree to this Privacy Policy. Please review it periodically to stay informed about how we are protecting your data.</p>
-        </div>
+        <footer>
+            <p>&copy; 2023 SUBBD. All rights reserved.</p>
+        </footer>
     </div>
+    
+    <script>
+        // Simple tab functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('.nav-tabs a');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Remove active class from all tabs and content
+                    tabs.forEach(t => t.classList.remove('active'));
+                    document.querySelectorAll('.tab-content').forEach(content => {
+                        content.classList.remove('active');
+                    });
+                    
+                    // Add active class to clicked tab and corresponding content
+                    this.classList.add('active');
+                    const tabId = this.getAttribute('data-tab');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+        });
+    </script>
 </body>
 </html>
